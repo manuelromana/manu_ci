@@ -6,15 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: building artefact of boilerplate
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-      - run:
-          name: here is my boiler plate
-          command: |
-            ls -al
-      - run:
-          name: running in a container
-          command: |
-            node -v
+            npm install
+            npm run build
+            ls -la
