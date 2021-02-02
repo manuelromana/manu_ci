@@ -5,9 +5,11 @@ jobs:
       - image: circleci/node:10-browsers
     steps:
       - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
       - run:
           name: building artefact of boilerplate
           command: |
-            npm install
             npm run build
-            ls -la
+          
