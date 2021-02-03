@@ -38,18 +38,14 @@ jobs:
             - .
 
   building_image:
-    docker:
-      - image: circleci/ubuntu-server
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
+    machine:
+      image: ubuntu-1604:201903-01
+      docker_layer_caching: true
     steps:
       - checkout
       - attach_workspace:
           at: boiler/dist
-      - run: |
-          ls boiler/dist
-          ls
+      - run: docker images
 
 workflows:
   version: 2.1
