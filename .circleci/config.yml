@@ -4,7 +4,7 @@ version: 2.1
 #   node: circleci/node@4.1.0
 
 jobs:
-  building_html_boiler:
+  building_boiler:
     docker:
       - image: circleci/node@4.1.0
         auth:
@@ -39,4 +39,4 @@ workflows:
   version: 2.1
   buildCode_buildImage:
     jobs:
-      - building_html_boiler
+      - building_boiler
