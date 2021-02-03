@@ -44,7 +44,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: boiler/dist
-      - run: ls
+      - run: |
+          cd nginx
+          mkdir dist
+          cp ~/boiler/dist/* dist
+          ls dist
 
 workflows:
   version: 2.1
