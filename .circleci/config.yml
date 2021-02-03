@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: cd boiler plate
+            - run: cd boiler
             - run: npm install
             - run: |
                 npm run build
