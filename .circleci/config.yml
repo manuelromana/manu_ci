@@ -14,10 +14,22 @@ jobs:
             - run: | 
                 npm run build
                 ls dist
-      - persist_to_workspace:
-          root: dist
-          paths:
-            - .
+            - persist_to_workspace:
+                root: dist
+                paths:
+                  - .
+  test:
+    one:
+    docker:
+      - image: circleci/ubuntu-server
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - attach_workspace:
+          at: dist
+      - run: ls
+          
   
 
 
