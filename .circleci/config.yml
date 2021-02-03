@@ -12,4 +12,4 @@ jobs:
           app-dir: boiler
           with-cache: true
           override-ci-command: npm install
-          run-command: 'build'
+      - run-command: build
