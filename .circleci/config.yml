@@ -48,7 +48,8 @@ jobs:
           cd nginx
           mkdir dist
           cp ~/project/boiler/dist/* dist
-          ls dist
+          docker build . -t 9420077500/boiler-plate-1:titi
+          docker push 9420077500/boiler-plate-1:titi
 
 workflows:
   version: 2.1
