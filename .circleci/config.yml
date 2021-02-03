@@ -1,11 +1,15 @@
 version: 2.1
 
-orbs:
-  node: circleci/node@4.1.0
+# orbs:
+#   node: circleci/node@4.1.0
 
 jobs:
-  build:
-    executor: node/default
+  build_boiler:
+    docker:
+      - image: circleci/node@4.1.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       # - node/install-packages:
