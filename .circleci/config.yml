@@ -8,17 +8,18 @@ jobs:
       tag: '10.4'
     steps:
       - checkout
-      - working_directory: ~/boiler
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: |
-                npm run build
-                ls dist
-            - persist_to_workspace:
-                root: dist
-                paths:
-                  - .
+      - run: ls
+     # - node/with-cache:
+    #      steps:
+            
+    #        - run: npm install
+    #        - run: |
+   #             npm run build
+  #              ls dist
+ #           - persist_to_workspace:
+ #               root: dist
+ #               paths:
+ #                 - .
 #   test:
 #     one:
 #     docker:
