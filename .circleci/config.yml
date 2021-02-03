@@ -36,8 +36,26 @@ jobs:
           root: boiler/dist
           paths:
             - .
+
+  building_image:
+    docker:
+      - image: circleci/node@4.1.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - attach_workspace:
+          at: boiler/dist
+      - run: |
+          ls boiler/dist
+          ls
+
 workflows:
   version: 2.1
   buildCode_buildImage:
     jobs:
       - building_boiler
+      - building_image:
+          requires:
+            - building_boiler
