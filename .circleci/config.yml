@@ -39,7 +39,7 @@ jobs:
 
   building_image:
     docker:
-      - image: circleci/node@4.1.0
+      - image: circleci/ubuntu-server
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
