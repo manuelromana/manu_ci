@@ -28,7 +28,7 @@ jobs:
     steps:
       - attach_workspace:
           at: dist
-      - run: ls
+      - run: ls dist
 
 workflows:
   version: 2.1
