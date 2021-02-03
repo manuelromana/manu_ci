@@ -4,7 +4,7 @@ version: 2.1
 #   node: circleci/node@4.1.0
 
 jobs:
-  myjob:
+  building_html_boiler:
     docker:
       - image: circleci/node@4.1.0
         auth:
@@ -35,3 +35,8 @@ jobs:
           root: boiler/dist
           paths:
             - .
+workflows:
+  version: 2.1
+  buildCode_buildImage:
+    jobs:
+      - building_html_boiler
