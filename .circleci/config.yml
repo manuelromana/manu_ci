@@ -6,6 +6,7 @@ orbs:
 jobs:
   build:
     executor: node/default
+    working_directory: ~/project/boiler
     steps:
       - checkout
       - node/install-packages:
