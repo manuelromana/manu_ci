@@ -12,7 +12,9 @@ jobs:
       #     app-dir: boiler
       #     with-cache: true
       #     override-ci-command: npm install
-      - run: npm install
+      - run: |
+          cd boiler
+          npm install
       - restore_cache:
           keys:
             - v1-npm-deps-{{ checksum "package-lock.json" }}
