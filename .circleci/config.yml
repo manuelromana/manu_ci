@@ -8,9 +8,9 @@ jobs:
       tag: '10.4'
     steps:
       - checkout
+      - working_directory: ~/boiler
       - node/with-cache:
           steps:
-            - run: cd boiler
             - run: npm install
             - run: |
                 npm run build
@@ -19,23 +19,23 @@ jobs:
                 root: dist
                 paths:
                   - .
-  test:
-    one:
-    docker:
-      - image: circleci/ubuntu-server
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
-    steps:
-      - attach_workspace:
-          at: dist
-      - run: ls dist
+#   test:
+#     one:
+#     docker:
+#       - image: circleci/ubuntu-server
+#         auth:
+#           username: mydockerhub-user
+#           password: $DOCKERHUB_PASSWORD
+#     steps:
+#       - attach_workspace:
+#           at: dist
+#       - run: ls dist
 
-workflows:
-  version: 2.1
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+# workflows:
+#   version: 2.1
+#   build_and_test:
+#     jobs:
+#       - build
+#       - test:
+#           requires:
+#             - build
