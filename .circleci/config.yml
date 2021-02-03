@@ -12,8 +12,7 @@ jobs:
           steps:
             - run: |
                 cd boiler
-                npm install
-                npm run build
+                ls
             - persist_to_workspace:
                 root: dist
                 paths:
