@@ -6,14 +6,21 @@ orbs:
 jobs:
   build:
     executor: node/default
-    working_directory: ~/project/boiler
     steps:
       - checkout
-      - node/install-packages:
-          app-dir: boiler
-          with-cache: true
-          override-ci-command: npm install
+      # - node/install-packages:
+      #     app-dir: boiler
+      #     with-cache: true
+      #     override-ci-command: npm install
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
       - run: |
           cd boiler
+          npm install
           npm run build
           ls
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - .
