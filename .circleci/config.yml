@@ -1,39 +1,15 @@
 version: 2.1
+
 orbs:
-  node: circleci/node@1.1
+  node: circleci/node@4.1.0
+
 jobs:
   build:
-    executor:
-      name: node/default
-      tag: '10.4'
+    executor: node/default
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: |
-                cd boiler
-                ls
-            - persist_to_workspace:
-                root: dist
-                paths:
-                  - .
-#   test:
-#     one:
-#     docker:
-#       - image: circleci/ubuntu-server
-#         auth:
-#           username: mydockerhub-user
-#           password: $DOCKERHUB_PASSWORD
-#     steps:
-#       - attach_workspace:
-#           at: dist
-#       - run: ls dist
-
-# workflows:
-#   version: 2.1
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
-#             - build
+      - node/install-packages:
+          app-dir: ~/boiler
+          with-cache: true
+          override-ci-command: npm install
+      - run: ls boiler
