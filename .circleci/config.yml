@@ -6,10 +6,12 @@ orbs:
 jobs:
   build:
     executor: node/default
-    run-command: build
     steps:
       - checkout
       - node/install-packages:
           app-dir: boiler
           with-cache: true
           override-ci-command: npm install
+      - run: |
+          cd boiler
+          npm run build
