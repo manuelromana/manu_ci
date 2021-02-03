@@ -28,6 +28,6 @@ jobs:
           key: v1-npm-deps-{{ checksum "boiler/package-lock.json" }}
 
       - persist_to_workspace:
-          root: dist
+          root: boiler/dist
           paths:
             - .
