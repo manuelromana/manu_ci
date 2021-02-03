@@ -22,7 +22,7 @@ jobs:
   two:
     docker: # it uses the docker executor
       - image: ubuntu:18.04
-    # Steps are a list of commands to run inside the docker container above.
+  
     steps:
       - checkout 
       - attach-workspace:
