@@ -10,8 +10,9 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
+            - run: cd boiler plate
             - run: npm install
-            - run: | 
+            - run: |
                 npm run build
                 ls dist
             - persist_to_workspace:
@@ -36,5 +37,5 @@ workflows:
     jobs:
       - build
       - test:
-          requires: 
+          requires:
             - build
