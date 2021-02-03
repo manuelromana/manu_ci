@@ -13,4 +13,18 @@ jobs:
             - run: npm install
       - run: | 
           npm run build
-          ls -l
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory
+          root: dist
+          # Must be relative path from root
+          paths:
+            - echo-output
+  two:
+    docker: # it uses the docker executor
+      - image: ubuntu:18.04
+    # Steps are a list of commands to run inside the docker container above.
+    steps:
+      - checkout 
+      - attach-workspace:
+          at: dist/
+      - run: ls
