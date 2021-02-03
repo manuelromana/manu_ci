@@ -8,8 +8,9 @@ jobs:
       tag: '10.4'
     steps:
       - checkout
-      - run: cd boiler
-      - run: ls
+      - run: |
+          cd boiler
+          ls
       # - node/with-cache:
     #      steps:
 
@@ -21,6 +22,7 @@ jobs:
   #               root: dist
   #               paths:
   #                 - .
+
 #   test:
 #     one:
 #     docker:
