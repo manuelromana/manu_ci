@@ -47,7 +47,7 @@ jobs:
       - run: |
           cd nginx
           mkdir dist
-          cp ~/boiler/dist/* dist
+          cp ~/project/boiler/dist/* dist
           ls dist
 
 workflows:
