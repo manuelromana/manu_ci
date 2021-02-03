@@ -16,3 +16,4 @@ jobs:
       - run: |
           cd boiler
           npm run build
+          ls
