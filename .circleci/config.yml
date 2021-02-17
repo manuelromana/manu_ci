@@ -48,7 +48,7 @@ jobs:
           cd nginx
           mkdir dist
           cp ~/project/boiler/dist/* dist
-          docker build . -t 9420077500/mamaka-webpage:1.0.0
+          docker build . -t 9420077500/mamaka-webpage
           echo $DOCKER_PASSWD | docker login -u $DOCKER_USER --password-stdin
           docker push 9420077500/mamaka-webpage:1.0.0
 
